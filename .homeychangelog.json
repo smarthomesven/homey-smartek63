@@ -16,5 +16,8 @@
   },
   "0.0.5": {
     "en": "Added main functionality"
+  },
+  "1.0.1": {
+    "en": "Added forum topic id"
   }
 }

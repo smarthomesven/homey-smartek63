@@ -1,0 +1,11 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Standby Mode",
+    "nl": "Standby-modus"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "uiQuickAction": false
+}

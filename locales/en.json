@@ -1,0 +1,16 @@
+{
+    "pair": {
+        "email": "Email",
+        "password": "Password",
+        "noemail": "Please enter your email",
+        "nopassword": "Please enter your password",
+        "success": "Login successful! Please create a Diagnostics Report in More->Apps->SmartEK63->Create Diagnostics Report.",
+        "failed": "Something went wrong, did you enter the correct username and password?",
+        "save": "Save",
+        "saving": "Saving..."
+    },
+    "errors": {
+        "offline": "Device is offline, check if it's connected to the internet",
+        "server": "The SmartEK63 server is unreachable, please check your internet connection"
+    }
+}

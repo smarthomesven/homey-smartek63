@@ -1,0 +1,62 @@
+{
+    "actions": [
+        {
+            "_comment": "This Flowcard has been marked as deprecated to remove it because of the bug in the Homey Apps SDK where values are shown incorrectly. This allows us to keep the standard fan_speed capability for Google Home and Alexa support.",
+            "id": "set_fan_speed",
+            "title": {
+                "en": "Set fan speed",
+                "nl": "Ventilatorsnelheid instellen"
+            },
+            "deprecated": true
+        },
+        {
+            "id": "set_fan_speed2",
+            "title": {
+            "en": "Set the fan speed",
+            "nl": "De ventilatorsnelheid instellen"
+            },
+            "titleFormatted": {
+            "en": "Set the fan speed to [[fan_speed]]",
+            "nl": "De ventilatorsnelheid instellen op [[fan_speed]]"
+            },
+            "args": [
+            {
+                "name": "fan_speed",
+                "type": "range",
+                "min": 0,
+                "max": 5,
+                "step": 1,
+                "labelDecimals": 0
+            }
+            ]
+        },
+        {
+            "id": "enable_relax_mode",
+            "title": {
+                "en": "Enable relax mode",
+                "nl": "Relax-modus inschakelen"
+            }
+        },
+        {
+            "id": "disable_relax_mode",
+            "title": {
+                "en": "Disable relax mode",
+                "nl": "Relax-modus uitschakelen"
+            }
+        },
+        {
+            "id": "enable_standby_mode",
+            "title": {
+                "en": "Enable standby mode",
+                "nl": "Standby-modus inschakelen"
+            }
+        },
+        {
+            "id": "disable_standby_mode",
+            "title": {
+                "en": "Disable standby mode",
+                "nl": "Standby-modus uitschakelen"
+            }
+        }
+    ]
+}

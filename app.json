@@ -1,0 +1,250 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.edilkamin.ek63",
+  "version": "0.0.5",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "runtime": "nodejs",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "SmartEK63"
+  },
+  "description": {
+    "en": "Latest-generation yet affordable heating"
+  },
+  "category": [
+    "climate"
+  ],
+  "source": "https://github.com/smarthomesven/homey-smartek63",
+  "bugs": {
+    "url": "https://github.com/smarthomesven/homey-smartek63/issues"
+  },
+  "permissions": [],
+  "brandColor": "#E30513",
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Sven Serlier",
+    "email": "sven@dypodex.com"
+  },
+  "flow": {
+    "actions": [
+      {
+        "_comment": "This Flowcard has been marked as deprecated to remove it because of the bug in the Homey Apps SDK where values are shown incorrectly. This allows us to keep the standard fan_speed capability for Google Home and Alexa support.",
+        "id": "set_fan_speed",
+        "title": {
+          "en": "Set fan speed",
+          "nl": "Ventilatorsnelheid instellen"
+        },
+        "deprecated": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          }
+        ]
+      },
+      {
+        "id": "set_fan_speed2",
+        "title": {
+          "en": "Set the fan speed",
+          "nl": "De ventilatorsnelheid instellen"
+        },
+        "titleFormatted": {
+          "en": "Set the fan speed to [[fan_speed]]",
+          "nl": "De ventilatorsnelheid instellen op [[fan_speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          },
+          {
+            "name": "fan_speed",
+            "type": "range",
+            "min": 0,
+            "max": 5,
+            "step": 1,
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
+        "id": "enable_relax_mode",
+        "title": {
+          "en": "Enable relax mode",
+          "nl": "Relax-modus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          }
+        ]
+      },
+      {
+        "id": "disable_relax_mode",
+        "title": {
+          "en": "Disable relax mode",
+          "nl": "Relax-modus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          }
+        ]
+      },
+      {
+        "id": "enable_standby_mode",
+        "title": {
+          "en": "Enable standby mode",
+          "nl": "Standby-modus inschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          }
+        ]
+      },
+      {
+        "id": "disable_standby_mode",
+        "title": {
+          "en": "Disable standby mode",
+          "nl": "Standby-modus uitschakelen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Pellet Stove",
+        "nl": "Pelletkachel"
+      },
+      "class": "heater",
+      "capabilities": [
+        "measure_temperature",
+        "target_temperature",
+        "onoff",
+        "fan_speed",
+        "relax_mode",
+        "standby_mode"
+      ],
+      "capabilitiesOptions": {
+        "fan_speed": {
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "units": {
+            "en": " "
+          }
+        },
+        "target_temperature": {
+          "min": 10,
+          "max": 35,
+          "step": 0.5
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/stove/assets/images/small.png",
+        "large": "/drivers/stove/assets/images/large.png",
+        "xlarge": "/drivers/stove/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": false
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "stove"
+    }
+  ],
+  "capabilities": {
+    "mode": {
+      "type": "enum",
+      "title": {
+        "en": "Mode",
+        "nl": "Modus"
+      },
+      "uiComponent": "picker",
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Automatic",
+            "nl": "Automatisch"
+          }
+        },
+        {
+          "id": "manual",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig"
+          }
+        }
+      ]
+    },
+    "relax_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Relax Mode",
+        "nl": "Relax-modus"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false
+    },
+    "standby_mode": {
+      "type": "boolean",
+      "title": {
+        "en": "Standby Mode",
+        "nl": "Standby-modus"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": false
+    }
+  }
+}

@@ -1,0 +1,1 @@
+This app connects your SmartEK63 pellet stoves to Homey. Simply log in with your email address and password, and the stove will be found automatically. 

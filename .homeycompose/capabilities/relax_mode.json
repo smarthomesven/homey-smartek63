@@ -1,0 +1,11 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Relax Mode",
+    "nl": "Relax-modus"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button",
+  "uiQuickAction": false
+}

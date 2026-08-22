@@ -1,0 +1,56 @@
+{
+  "name": {
+    "en": "Pellet Stove",
+    "nl": "Pelletkachel"
+  },
+  "class": "heater",
+  "capabilities": [
+    "measure_temperature",
+    "target_temperature",
+    "onoff",
+    "fan_speed",
+    "relax_mode",
+    "standby_mode"
+  ],
+  "capabilitiesOptions": {
+    "fan_speed": {
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "units": {
+        "en": " "
+      }
+    },
+    "target_temperature": {
+      "min": 10,
+      "max": 35,
+      "step": 0.5
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "login"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": { "next": "add_devices" },
+      "options": { "singular": false }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

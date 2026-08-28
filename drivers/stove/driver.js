@@ -67,7 +67,7 @@ module.exports = class MyDriver extends Homey.Driver {
         const idToken = this.homey.settings.get('idToken');
         if (idToken) {
           try {
-            const response = await axios.get('https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters', {
+            await axios.get('https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters', {
               headers: {
                 'Authorization': `${idToken}`
               }
@@ -107,11 +107,10 @@ module.exports = class MyDriver extends Homey.Driver {
           return false;
         }
         // Test the connection
-        let response;
         try {
-          response = await axios.get('https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters', {
+          await axios.get('https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters', {
             headers: {
-              'Authorization': `${this.homey.settings.get("idToken")}`
+              'Authorization': `${result.idToken}`
             }
           });
         } catch (error) {

@@ -4,15 +4,15 @@ const Homey = require('homey');
 const auth = require('../../lib/auth');
 const axios = require('axios');
 
-module.exports = class MyDevice extends Homey.Device {
+module.exports = class EK63Device extends Homey.Device {
 
   /**
    * onInit is called when the device is initialized.
    */
   async onInit() {
-    this.log('MyDevice has been initialized');
+    this.log('EK63 device has been initialized');
     if (!this.hasCapability('onoff')) {
-      // User needs to pair the device again
+      // Beta tester needs to pair the device again
       await this.setUnavailable("Koppel het apparaat opnieuw");
       return;
     }
@@ -77,6 +77,7 @@ module.exports = class MyDevice extends Homey.Device {
         }
       });
     });
+    // Mode
     this.registerCapabilityListener('mode', async (value) => {
       await axios.put(`https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters/${this.getData().id}/mode`, {
         mode: value
@@ -139,7 +140,7 @@ module.exports = class MyDevice extends Homey.Device {
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded() {
-    this.log('MyDevice has been added');
+    this.log('EK63 device has been added');
   }
 
   /**
@@ -151,7 +152,7 @@ module.exports = class MyDevice extends Homey.Device {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log('MyDevice settings where changed');
+    this.log('EK63 device settings where changed');
   }
 
   /**
@@ -160,14 +161,14 @@ module.exports = class MyDevice extends Homey.Device {
    * @param {string} name The new name
    */
   async onRenamed(name) {
-    this.log('MyDevice was renamed');
+    this.log('EK63 device was renamed');
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
-    this.log('MyDevice has been deleted');
+    this.log('EK63 device has been deleted');
   }
 
 };

@@ -4,7 +4,7 @@
         "password": "Password",
         "noemail": "Please enter your email",
         "nopassword": "Please enter your password",
-        "success": "Login successful! Please create a Diagnostics Report in More->Apps->SmartEK63->Create Diagnostics Report.",
+        "success": "Login successful",
         "failed": "Something went wrong, did you enter the correct username and password?",
         "save": "Save",
         "saving": "Saving..."

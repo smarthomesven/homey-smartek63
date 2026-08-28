@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.edilkamin.ek63",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "runtime": "nodejs",
@@ -22,6 +22,11 @@
     "url": "https://github.com/smarthomesven/homey-smartek63/issues"
   },
   "homeyCommunityTopicId": 158618,
+  "tags": {
+    "en": [
+      "edilkamin"
+    ]
+  },
   "permissions": [],
   "brandColor": "#E30513",
   "images": {

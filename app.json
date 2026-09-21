@@ -39,6 +39,36 @@
     "email": "sven@dypodex.com"
   },
   "flow": {
+    "conditions": [
+      {
+        "id": "relax_mode_condition",
+        "title": {
+          "en": "Relax mode is !{{enabled|disabled}}",
+          "nl": "Relax-modus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          }
+        ]
+      },
+      {
+        "id": "standby_mode_condition",
+        "title": {
+          "en": "Standby mode is !{{enabled|disabled}}",
+          "nl": "Standby-modus is !{{ingeschakeld|uitgeschakeld}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=stove"
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "_comment": "This Flowcard has been marked as deprecated to remove it because of the bug in the Homey Apps SDK where values are shown incorrectly. This allows us to keep the standard fan_speed capability for Google Home and Alexa support.",

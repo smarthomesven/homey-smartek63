@@ -4,17 +4,29 @@ const Homey = require('homey');
 const auth = require('../../lib/auth');
 const axios = require('axios');
 
-module.exports = class MyDriver extends Homey.Driver {
+module.exports = class EK63Driver extends Homey.Driver {
 
   /**
    * onInit is called when the driver is initialized.
    */
   async onInit() {
-    this.log('MyDriver has been initialized');
+    this.log('EK63 driver has been initialized');
     const enableRelaxAction = this.homey.flow.getActionCard('enable_relax_mode');
     const disableRelaxAction = this.homey.flow.getActionCard('disable_relax_mode');
     const enableStandbyAction = this.homey.flow.getActionCard('enable_standby_mode');
     const disableStandbyAction = this.homey.flow.getActionCard('disable_standby_mode');
+    const standbyModeCondition = this.homey.flow.getConditionCard('standby_mode_condition');
+    const relaxModeCondition = this.homey.flow.getConditionCard('relax_mode_condition');
+    standbyModeCondition.registerRunListener(async (args, state) => {
+      const device = args.device;
+      const standbyMode = await device.getCapabilityValue('standby_mode');
+      return standbyMode === args.standby_mode;
+    });
+    relaxModeCondition.registerRunListener(async (args, state) => {
+      const device = args.device;
+      const relaxMode = await device.getCapabilityValue('relax_mode');
+      return relaxMode === args.relax_mode;
+    });
     enableRelaxAction.registerRunListener(async (args, state) => {
       const device = args.device;
       await axios.put(`https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters/${device.getData().id}/relax`, {

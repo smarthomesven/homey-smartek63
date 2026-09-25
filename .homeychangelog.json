@@ -28,5 +28,8 @@
   },
   "1.0.4": {
     "en": "Added condition cards for standby mode and relax mode"
+  },
+  "1.0.5": {
+    "en": "Code quality improvements"
   }
 }

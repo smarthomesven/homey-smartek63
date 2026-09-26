@@ -31,5 +31,8 @@
   },
   "1.0.5": {
     "en": "Code quality improvements"
+  },
+  "1.0.6": {
+    "en": "Fixed condition cards"
   }
 }

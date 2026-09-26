@@ -20,12 +20,12 @@ module.exports = class EK63Driver extends Homey.Driver {
     standbyModeCondition.registerRunListener(async (args, state) => {
       const device = args.device;
       const standbyMode = await device.getCapabilityValue('standby_mode');
-      return standbyMode === args.standby_mode;
+      return standbyMode;
     });
     relaxModeCondition.registerRunListener(async (args, state) => {
       const device = args.device;
       const relaxMode = await device.getCapabilityValue('relax_mode');
-      return relaxMode === args.relax_mode;
+      return relaxMode;
     });
     enableRelaxAction.registerRunListener(async (args, state) => {
       const device = args.device;

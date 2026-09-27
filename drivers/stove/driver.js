@@ -181,6 +181,42 @@ module.exports = class EK63Driver extends Homey.Driver {
     });
   }
 
+  async onRepair(session) {
+    session.setHandler('login', async (data) => {
+      try {
+        if (!data.email || !data.password) {
+          return false;
+        }
+        const result = await auth.login(data.email, data.password);
+        if (result.accessToken && result.refreshToken && result.idToken && result.expiresIn) {
+          this.homey.settings.set('email', data.email);
+          this.homey.settings.set('accessToken', result.accessToken);
+          this.homey.settings.set('refreshToken', result.refreshToken);
+          this.homey.settings.set('idToken', result.idToken);
+          this.homey.settings.set('expiresIn', result.expiresIn);
+        } else {
+          return false;
+        }
+        // Test the connection
+        try {
+          await axios.get('https://8wmnu4exgg.execute-api.eu-central-1.amazonaws.com/prod/heaters', {
+            headers: {
+              'Authorization': `${result.idToken}`
+            }
+          });
+        } catch (error) {
+          this.error("Error:", error.message);
+          return false;
+        }
+        
+        await session.done();
+        return true;
+      } catch (error) {
+        this.error("Error:", error.message);
+        return false;
+      }
+    });
+
   /**
    * onPairListDevices is called when a user is adding a device
    * and the 'list_devices' view is called.

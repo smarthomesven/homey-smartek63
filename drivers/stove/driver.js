@@ -216,6 +216,7 @@ module.exports = class EK63Driver extends Homey.Driver {
         return false;
       }
     });
+  }
 
   /**
    * onPairListDevices is called when a user is adding a device

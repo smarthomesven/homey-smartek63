@@ -37,5 +37,8 @@
   },
   "1.0.7": {
     "en": "Added repair view"
+  },
+  "1.0.8": {
+    "en": "Fix crash issue"
   }
 }
